@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L2P</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('mexican-pattern.jpg');
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: #00b300;
+            font-size: 24px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .menu-section {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            color: #ff4d4d;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateX(10px);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            color: #ffcc00;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .item-price {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .item-description {
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .image-decoration {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-top {
+            top: 20px;
+            right: 20px;
+        }
+
+        .image-bottom {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 1024px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .image-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">Taqueria</h1>
+        <h2 class="subtitle">Los 2 Plebes</h2>
+    </header>
+
+    <div class="menu-container">
+        <section class="menu-section" id="tacos-section">
+            <h2 class="section-title">Tacos</h2>
+        </section>
+
+        <section class="menu-section" id="gringas-section">
+            <h2 class="section-title">Gringas</h2>
+        </section>
+
+        <section class="menu-section" id="tortas-section">
+            <h2 class="section-title">Tortas</h2>
+        </section>
+
+        <section class="menu-section" id="quesadillas-section">
+            <h2 class="section-title">Quesadillas</h2>
+        </section>
+
+        <section class="menu-section" id="especiales-section">
+            <h2 class="section-title">Especiales</h2>
+        </section>
+    </div>
+
+    <div class="image-decoration image-top">
+        <img src="placeholder-tacos1.jpg" alt="Tacos" class="menu-img">
+    </div>
+    <div class="image-decoration image-bottom">
+        <img src="placeholder-tacos2.jpg" alt="Tacos especiales" class="menu-img">
+    </div>
+
+    <script>
+        const tacosItems = [
+            { name: 'Taco al Pastor', price: '15.00', description: 'Tortilla de maíz, carne al pastor marinada, cebolla y cilantro.' },
+            { name: 'Taco de Bistec', price: '15.00', description: 'Tortilla de maíz, bistec asado, cebolla y cilantro.' },
+            { name: 'Taco de campechana', price: '15.00', description: 'Tortilla de maíz, bistec, cebolla y cilantro.' },
+            { name: 'Taco de chuleta', price: '15.00', description: 'Tortilla de maíz, chorizo mexicano, cebolla y cilantro.' },
+            { name: 'Taco de Chorizo', price: '15.00', description: 'Tortilla de maíz, chorizo mexicano, cebolla y cilantro.' }
+
+        ];
+
+        const gringasItems = [
+            { name: 'Gringa al Pastor', price: '50.00', description: 'Tortilla de harina, queso, carne al pastor y piña.' },
+            { name: 'Gringa de Bistec', price: '50.00', description: 'Tortilla de harina, queso y bistec asado.' },
+            { name: 'Gringa Especial', price: '50.00', description: 'Tortilla de harina, queso, bistec, chorizo y champiñones.' },
+            { name: 'Gringa combinada', price: '50.00', description: 'Tortilla de harina, queso, bistec, chorizo.' }
+
+        ];
+
+        const tortasItems = [
+            { name: 'Torta de pastor', price: '60.00', description: 'Pan telera, pierna adobada, aguacate, jitomate y lechuga.' },
+            { name: 'Torta de bistec', price: '60.00', description: 'Pan telera, pierna adobada, aguacate, jitomate y lechuga.' },
+            { name: 'Torta de combinada', price: '60.00', description: 'Pan telera, pierna adobada, aguacate, jitomate y lechuga.' },
+            { name: 'Torta de chuelta', price: '60.00', description: 'Pan telera, pierna adobada, aguacate, jitomate y lechuga.' },
+        ];
+
+        const quesadillasItems = [
+            { name: 'Quesadilla de pastor', price: '25.00', description: 'Tortilla de maíz, quesillo.' },
+            { name: 'Quesadilla de chuleta', price: '25.00', description: 'Tortilla de maíz, quesillo.' },
+            { name: 'Quesadilla de bistec', price: '25.00', description: 'Tortilla de maíz, quesillo y bistec.' }
+        ];
+
+        const especialesItems = [
+            { name: 'Alambre', price: '55.00(chico) $130.00(grande)', description: 'Tortilla dorada, quesillo y carne al pastor.' },
+            { name: 'Los 2 Plebes', price: '85.00', description: 'Bistec, chorizo, tocino, pimientos, cebolla y queso gratinado.' },
+            { name: 'Que Me Vez', price: '160.00', description: 'Bistec, chorizo, pollo, nopales, queso y salsa roja.' }
+        ];
+
+        function createMenuItem(item) {
+            return `
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">$${item.price}</span>
+                    </div>
+                    <p class="item-description">${item.description}</p>
+                </div>
+            `;
+        }
+
+        function initializeMenu() {
+            const sections = {
+                'tacos-section': tacosItems,
+                'gringas-section': gringasItems,
+                'tortas-section': tortasItems,
+                'quesadillas-section': quesadillasItems,
+                'especiales-section': especialesItems
+            };
+
+            for (const [sectionId, items] of Object.entries(sections)) {
+                const section = document.getElementById(sectionId);
+                items.forEach(item => {
+                    section.innerHTML += createMenuItem(item);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+    </script>
+</body>
+</html>
